@@ -1,0 +1,24 @@
+{
+  "tasks": {
+    "serve": "deno -A --env --node-modules-dir server.ts",
+    "reset": "rm -rf deno.lock node_modules drizzle",
+    "drizzle": "deno -A --env --node-modules-dir npm:drizzle-kit",
+    "drizzle:generate": "deno -A --env --node-modules-dir npm:drizzle-kit generate",
+    "drizzle:migrate": "deno -A --env --node-modules-dir npm:drizzle-kit migrate",
+    "drizzle:pull": "deno -A --env --node-modules-dir npm:drizzle-kit pull",
+    "drizzle:push": "deno task drizzle:pull && deno task drizzle:generate && deno task drizzle:migrate",
+    "drizzle:check": "deno -A --env --node-modules-dir npm:drizzle-kit check",
+    "drizzle:up": "deno -A --env --node-modules-dir npm:drizzle-kit up",
+    "drizzle:drop": "deno -A --env --node-modules-dir npm:drizzle-kit drop",
+    "drizzle:studio": "deno -A --env --node-modules-dir npm:drizzle-kit studio",
+    "drizzle:export": "deno -A --env --node-modules-dir npm:drizzle-kit export"
+  },
+  "imports": {
+    "dotenv": "npm:dotenv@^17.2.3",
+    "drizzle-graphql": "npm:drizzle-graphql@^0.8.5",
+    "drizzle-kit": "npm:drizzle-kit@^0.31.6",
+    "drizzle-orm": "npm:drizzle-orm@^0.44.7",
+    "graphql-yoga": "npm:graphql-yoga@^5.16.2",
+    "postgres": "npm:postgres@^3.4.7"
+  }
+}
