@@ -57,7 +57,7 @@ const onListen = ({ hostname, port }: Deno.NetAddr) => {
     const { pathname } = new URL(req.url),
       HHmmss = time(reqTime),
       ms = duration(reqTime, new Date());
-    if (!pathname.startsWith("/.") && !pathname.startsWith("/node_modules")) {
+    if (!matchRoute(req.url, "/(\\.|_|~|@|node_modules)(.+)")) {
       console.log(
         `%c${HHmmss} %c[${res.status}] %c${req.method} ${pathname} %c${ms}`,
         "color: grey",
@@ -68,6 +68,7 @@ const onListen = ({ hostname, port }: Deno.NetAddr) => {
     }
     return res;
   };
+
 Deno.serve({ onListen }, async (req) => {
   const reqTime = new Date();
   return onRequest(req, reqTime, await handleRoute(req));

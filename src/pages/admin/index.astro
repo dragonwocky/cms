@@ -3,6 +3,7 @@ export const prerender = false;
 
 import "../../styles/global.css";
 import { Code } from "astro:components";
+import { Editor } from "../../islands/Editor.jsx";
 import { gql } from "../../graphql";
 
 const users = await gql(`query {
@@ -25,6 +26,7 @@ const users = await gql(`query {
 	<body>
 		<h1>Hello world!</h1>
 		<br />
-		<Code lang="json" code={JSON.stringify(users)} />
+		<Code lang="json" code={JSON.stringify(users)} server:defer />
+		<Editor client:visible />
 	</body>
 </html>

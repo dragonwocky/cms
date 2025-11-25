@@ -1,5 +1,5 @@
 const gql = (query: string, variables?: { [k: string]: unknown }) =>
-  fetch(new URL("/graphql", import.meta.env.PUBLIC_URL), {
+  fetch(new URL("/graphql/", import.meta.env.PUBLIC_URL), {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
