@@ -1,6 +1,8 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@std/bytes@*": "1.0.6",
+    "jsr:@std/bytes@^1.0.6": "1.0.6",
     "jsr:@std/cli@^1.0.23": "1.0.23",
     "jsr:@std/encoding@^1.0.10": "1.0.10",
     "jsr:@std/fmt@^1.0.8": "1.0.8",
@@ -15,12 +17,13 @@
     "jsr:@std/path@1.0": "1.0.9",
     "jsr:@std/path@^1.1.2": "1.1.2",
     "jsr:@std/streams@^1.0.13": "1.0.13",
-    "npm:@deno/astro-adapter@~0.3.2": "0.3.2_astro@5.15.8__vite@6.4.1___picomatch@4.0.3__zod@3.25.76",
-    "npm:@tailwindcss/vite@^4.1.17": "4.1.17_vite@7.2.2__picomatch@4.0.3",
+    "npm:@deno/astro-adapter@~0.3.2": "0.3.2_astro@5.15.8__vite@6.4.1___picomatch@4.0.3__zod@3.25.76_@types+node@24.2.0",
+    "npm:@tailwindcss/vite@^4.1.17": "4.1.17_vite@7.2.2__picomatch@4.0.3_@types+node@24.2.0",
     "npm:@tiptap/core@^3.10.7": "3.10.7_@tiptap+pm@3.10.7__prosemirror-model@1.25.4__prosemirror-state@1.4.4__prosemirror-view@1.41.3",
     "npm:@tiptap/starter-kit@^3.10.7": "3.10.7_@tiptap+pm@3.10.7__prosemirror-model@1.25.4__prosemirror-state@1.4.4__prosemirror-view@1.41.3_@tiptap+core@3.10.7__@tiptap+pm@3.10.7___prosemirror-model@1.25.4___prosemirror-state@1.4.4___prosemirror-view@1.41.3_@tiptap+extension-list@3.10.7__@tiptap+core@3.10.7___@tiptap+pm@3.10.7____prosemirror-model@1.25.4____prosemirror-state@1.4.4____prosemirror-view@1.41.3__@tiptap+pm@3.10.7___prosemirror-model@1.25.4___prosemirror-state@1.4.4___prosemirror-view@1.41.3_@tiptap+extensions@3.10.7__@tiptap+core@3.10.7___@tiptap+pm@3.10.7____prosemirror-model@1.25.4____prosemirror-state@1.4.4____prosemirror-view@1.41.3__@tiptap+pm@3.10.7___prosemirror-model@1.25.4___prosemirror-state@1.4.4___prosemirror-view@1.41.3",
-    "npm:astro@*": "5.15.8_vite@6.4.1__picomatch@4.0.3_zod@3.25.76",
-    "npm:astro@^5.15.5": "5.15.8_vite@6.4.1__picomatch@4.0.3_zod@3.25.76",
+    "npm:@types/node@*": "24.2.0",
+    "npm:astro@*": "5.15.8_vite@6.4.1__picomatch@4.0.3_zod@3.25.76_@types+node@24.2.0",
+    "npm:astro@^5.15.5": "5.15.8_vite@6.4.1__picomatch@4.0.3_zod@3.25.76_@types+node@24.2.0",
     "npm:dotenv@^17.2.3": "17.2.3",
     "npm:drizzle-graphql@~0.8.5": "0.8.5_drizzle-orm@0.44.7__postgres@3.4.7_graphql@16.12.0_postgres@3.4.7",
     "npm:drizzle-kit@*": "0.31.7_esbuild@0.25.12",
@@ -29,9 +32,12 @@
     "npm:graphql-yoga@^5.16.2": "5.16.2_graphql@16.12.0",
     "npm:postgres@^3.4.7": "3.4.7",
     "npm:tailwindcss@^4.1.17": "4.1.17",
-    "npm:vite@^7.2.2": "7.2.2_picomatch@4.0.3"
+    "npm:vite@^7.2.2": "7.2.2_picomatch@4.0.3_@types+node@24.2.0"
   },
   "jsr": {
+    "@std/bytes@1.0.6": {
+      "integrity": "f6ac6adbd8ccd99314045f5703e23af0a68d7f7e58364b47d2c7f408aeb5820a"
+    },
     "@std/cli@1.0.23": {
       "integrity": "bf95b7a9425ba2af1ae5a6359daf58c508f2decf711a76ed2993cd352498ccca"
     },
@@ -163,7 +169,13 @@
     "@deno/astro-adapter@0.3.2_astro@5.15.8__vite@6.4.1___picomatch@4.0.3__zod@3.25.76": {
       "integrity": "sha512-nN0kQGobRs2XE3R+O/DWYQanEWpteJNsIf5TD65787qFEw2CrqkFNcNolZFJiKUF/2Y/TKyOLRjMS3F6auECVg==",
       "dependencies": [
-        "astro"
+        "astro@5.15.8_vite@6.4.1__picomatch@4.0.3_zod@3.25.76"
+      ]
+    },
+    "@deno/astro-adapter@0.3.2_astro@5.15.8__vite@6.4.1___picomatch@4.0.3__zod@3.25.76_@types+node@24.2.0": {
+      "integrity": "sha512-nN0kQGobRs2XE3R+O/DWYQanEWpteJNsIf5TD65787qFEw2CrqkFNcNolZFJiKUF/2Y/TKyOLRjMS3F6auECVg==",
+      "dependencies": [
+        "astro@5.15.8_vite@6.4.1__picomatch@4.0.3_zod@3.25.76_@types+node@24.2.0"
       ]
     },
     "@drizzle-team/brocli@0.10.2": {
@@ -982,6 +994,15 @@
         "vite@7.2.2_picomatch@4.0.3"
       ]
     },
+    "@tailwindcss/vite@4.1.17_vite@7.2.2__picomatch@4.0.3_@types+node@24.2.0": {
+      "integrity": "sha512-4+9w8ZHOiGnpcGI6z1TVVfWaX/koK7fKeSYF3qlYg2xpBtbteP2ddBxiarL+HVgfSJGeK5RIxRQmKm4rTJJAwA==",
+      "dependencies": [
+        "@tailwindcss/node",
+        "@tailwindcss/oxide",
+        "tailwindcss",
+        "vite@7.2.2_picomatch@4.0.3_@types+node@24.2.0"
+      ]
+    },
     "@tiptap/core@3.10.7_@tiptap+pm@3.10.7__prosemirror-model@1.25.4__prosemirror-state@1.4.4__prosemirror-view@1.41.3": {
       "integrity": "sha512-4rD3oHkXNOS6Fxm0mr+ECyq35iMFnnAXheIO+UsQbOexwTxn2yZ5Q1rQiFKcCf+p+rrg1yt8TtxQPM8VLWS+1g==",
       "dependencies": [
@@ -1377,7 +1398,78 @@
         "unstorage",
         "vfile",
         "vite@6.4.1_picomatch@4.0.3",
-        "vitefu",
+        "vitefu@1.1.1_vite@6.4.1__picomatch@4.0.3",
+        "xxhash-wasm",
+        "yargs-parser",
+        "yocto-spinner",
+        "zod",
+        "zod-to-json-schema",
+        "zod-to-ts"
+      ],
+      "optionalDependencies": [
+        "sharp"
+      ],
+      "bin": true
+    },
+    "astro@5.15.8_vite@6.4.1__picomatch@4.0.3_zod@3.25.76_@types+node@24.2.0": {
+      "integrity": "sha512-QiiRnNPdxCcAGO2UlO07o+QeGgRfEC5Dlm0x35WPB/ixFK1T2bsNB6KaXri70cVkYY1GYgoRtrWv3HCR26o9aw==",
+      "dependencies": [
+        "@astrojs/compiler",
+        "@astrojs/internal-helpers",
+        "@astrojs/markdown-remark",
+        "@astrojs/telemetry",
+        "@capsizecss/unpack",
+        "@oslojs/encoding",
+        "@rollup/pluginutils",
+        "acorn",
+        "aria-query",
+        "axobject-query",
+        "boxen",
+        "ci-info",
+        "clsx",
+        "common-ancestor-path",
+        "cookie",
+        "cssesc",
+        "debug",
+        "deterministic-object-hash",
+        "devalue",
+        "diff",
+        "dlv",
+        "dset",
+        "es-module-lexer",
+        "esbuild@0.25.12",
+        "estree-walker@3.0.3",
+        "flattie",
+        "fontace",
+        "github-slugger",
+        "html-escaper",
+        "http-cache-semantics",
+        "import-meta-resolve",
+        "js-yaml",
+        "magic-string",
+        "magicast",
+        "mrmime",
+        "neotraverse",
+        "p-limit",
+        "p-queue",
+        "package-manager-detector",
+        "picocolors",
+        "picomatch@4.0.3",
+        "prompts",
+        "rehype",
+        "semver",
+        "shiki",
+        "smol-toml",
+        "tinyexec",
+        "tinyglobby",
+        "tsconfck",
+        "ultrahtml",
+        "unifont",
+        "unist-util-visit",
+        "unstorage",
+        "vfile",
+        "vite@6.4.1_picomatch@4.0.3_@types+node@24.2.0",
+        "vitefu@1.1.1_vite@6.4.1__picomatch@4.0.3_@types+node@24.2.0",
         "xxhash-wasm",
         "yargs-parser",
         "yocto-spinner",
@@ -3202,6 +3294,25 @@
       ],
       "bin": true
     },
+    "vite@6.4.1_picomatch@4.0.3_@types+node@24.2.0": {
+      "integrity": "sha512-+Oxm7q9hDoLMyJOYfUYBuHQo+dkAloi33apOPP56pzj+vsdJDzr+j1NISE5pyaAuKL4A3UD34qd0lx5+kfKp2g==",
+      "dependencies": [
+        "@types/node",
+        "esbuild@0.25.12",
+        "fdir",
+        "picomatch@4.0.3",
+        "postcss",
+        "rollup",
+        "tinyglobby"
+      ],
+      "optionalDependencies": [
+        "fsevents"
+      ],
+      "optionalPeers": [
+        "@types/node"
+      ],
+      "bin": true
+    },
     "vite@7.2.2_picomatch@4.0.3": {
       "integrity": "sha512-BxAKBWmIbrDgrokdGZH1IgkIk/5mMHDreLDmCJ0qpyJaAteP8NvMhkwr/ZCQNqNH97bw/dANTE9PDzqwJghfMQ==",
       "dependencies": [
@@ -3217,6 +3328,25 @@
       ],
       "bin": true
     },
+    "vite@7.2.2_picomatch@4.0.3_@types+node@24.2.0": {
+      "integrity": "sha512-BxAKBWmIbrDgrokdGZH1IgkIk/5mMHDreLDmCJ0qpyJaAteP8NvMhkwr/ZCQNqNH97bw/dANTE9PDzqwJghfMQ==",
+      "dependencies": [
+        "@types/node",
+        "esbuild@0.25.12",
+        "fdir",
+        "picomatch@4.0.3",
+        "postcss",
+        "rollup",
+        "tinyglobby"
+      ],
+      "optionalDependencies": [
+        "fsevents"
+      ],
+      "optionalPeers": [
+        "@types/node"
+      ],
+      "bin": true
+    },
     "vitefu@1.1.1_vite@6.4.1__picomatch@4.0.3": {
       "integrity": "sha512-B/Fegf3i8zh0yFbpzZ21amWzHmuNlLlmJT6n7bu5e+pCHUKQIfXSYokrqOBGEMMe9UG2sostKQF9mml/vYaWJQ==",
       "dependencies": [
@@ -3224,6 +3354,15 @@
       ],
       "optionalPeers": [
         "vite@6.4.1_picomatch@4.0.3"
+      ]
+    },
+    "vitefu@1.1.1_vite@6.4.1__picomatch@4.0.3_@types+node@24.2.0": {
+      "integrity": "sha512-B/Fegf3i8zh0yFbpzZ21amWzHmuNlLlmJT6n7bu5e+pCHUKQIfXSYokrqOBGEMMe9UG2sostKQF9mml/vYaWJQ==",
+      "dependencies": [
+        "vite@6.4.1_picomatch@4.0.3_@types+node@24.2.0"
+      ],
+      "optionalPeers": [
+        "vite@6.4.1_picomatch@4.0.3_@types+node@24.2.0"
       ]
     },
     "w3c-keyname@2.2.8": {
@@ -3289,6 +3428,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@std/bytes@^1.0.6",
       "jsr:@std/http@^1.0.21",
       "npm:@deno/astro-adapter@~0.3.2",
       "npm:@tailwindcss/vite@^4.1.17",

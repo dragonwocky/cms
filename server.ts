@@ -7,7 +7,11 @@ import postgres from "postgres";
 import * as schema from "./schema.ts";
 import { serveDir } from "@std/http/file-server";
 
-const db = drizzle({ client: postgres(process.env.DATABASE_URL!), schema }),
+const db = drizzle({
+    client: postgres(process.env.DATABASE_URL!),
+    casing: "snake_case",
+    schema,
+  }),
   yoga = createYoga(buildSchema(db));
 
 if (process.env.NODE_ENV == "dev") await _dev({ logLevel: "warn" });
@@ -20,23 +24,10 @@ const dev = (req: Request) => {
       body: req.body,
     });
   },
-  prodClient = (req: Request) =>
+  ssg = (req: Request) =>
     serveDir(req, { fsRoot: "./dist/client", quiet: true }),
-  prodServer = (req: Request) =>
-    (import("./dist/server/entry.mjs")).then(({ handle }) => handle(req)),
-  prod = async (req: Request) => {
-    const res = await prodClient(req);
-    if (res.status === 404) return prodServer(req);
-    return res;
-  };
-
-const matchRoute = (url: string, pathname: string) =>
-    new URLPattern({ pathname }).test(url),
-  handleRoute = (req: Request) => {
-    if (matchRoute(req.url, "/graphql{/}?")) return yoga(req);
-    else if (process.env.NODE_ENV == "dev") return dev(req);
-    return prod(req);
-  };
+  ssr = (req: Request) =>
+    (import("./dist/server/entry.mjs")).then(({ handle }) => handle(req));
 
 const time = (date: Date) => {
     const pad = (n: number) => ("" + n).padStart(2, "0"),
@@ -45,8 +36,18 @@ const time = (date: Date) => {
       ss = date.getSeconds();
     return `${pad(HH)}:${pad(mm)}:${pad(ss)}`;
   },
-  duration = (a: Date, b: Date) => `${b.getTime() - a.getTime()}ms`,
-  onListen = ({ hostname, port }: Deno.NetAddr) => {
+  duration = (a: Date, b: Date) => `${b.getTime() - a.getTime()}ms`;
+
+const matchRoute = (url: string, pathname: string) =>
+    new URLPattern({ pathname }).test(url),
+  handleRoute = async (req: Request) => {
+    if (matchRoute(req.url, "/graphql{/}?")) return yoga(req);
+    else if (process.env.NODE_ENV == "dev") return dev(req);
+    const res = await ssg(req);
+    if (res.status === 404) return ssr(req);
+  };
+
+const onListen = ({ hostname, port }: Deno.NetAddr) => {
     console.log(`\n%c Listening... `, "background-color: green");
     console.log(`✨ http://${hostname}:${port}`);
     console.log(`✨ http://${hostname}:${port}/graphql`);
