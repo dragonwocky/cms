@@ -20,7 +20,7 @@ const alphabet = "abcdefghijklmnopqrstuvwxyz1234567890",
     return new Uint8Array(secretHashBuffer);
   };
 
-const sessionExpiry = 60 * 60 * 24 * 4 * 1000,
+const sessionTimeout = 60 * 60 * 24 * 4 * 1000,
   sessionRefreshInterval = 60 * 60 * 1000,
   age = (session: Session) => Date.now() - session.updatedAt.getTime();
 
@@ -49,7 +49,7 @@ const createSession = async () => {
       .select().from(sessions)
       .where(eq(sessions.id, id));
     if (!session) return null;
-    if (age(session) >= sessionExpiry) {
+    if (age(session) >= sessionTimeout) {
       await invalidateSession(id);
       return null;
     }

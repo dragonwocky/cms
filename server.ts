@@ -1,21 +1,14 @@
-import { dev as _dev } from "astro";
+import { serveDir } from "@std/http/file-server";
+import { dev } from "astro";
 import { buildSchema } from "drizzle-graphql";
-import { drizzle } from "drizzle-orm/postgres-js";
 import { createYoga } from "graphql-yoga";
 import process from "node:process";
-import postgres from "postgres";
-import * as schema from "./schema.ts";
-import { serveDir } from "@std/http/file-server";
+import db from "./schema.ts";
 
-const db = drizzle({
-    client: postgres(process.env.DATABASE_URL!),
-    casing: "snake_case",
-    schema,
-  }),
-  yoga = createYoga(buildSchema(db));
+// const yoga = createYoga(buildSchema(db));
 
-if (process.env.NODE_ENV == "dev") await _dev({ logLevel: "warn" });
-const dev = (req: Request) => {
+if (process.env.NODE_ENV == "dev") await dev({ logLevel: "warn" });
+const astro = (req: Request) => {
     const proxy = new URL(req.url);
     proxy.port = process.env.ASTRO_DEV!;
     return fetch(proxy, {
@@ -41,8 +34,8 @@ const time = (date: Date) => {
 const matchRoute = (url: string, pathname: string) =>
     new URLPattern({ pathname }).test(url),
   handleRoute = async (req: Request) => {
-    if (matchRoute(req.url, "/graphql{/}?")) return yoga(req);
-    else if (process.env.NODE_ENV == "dev") return dev(req);
+    // if (matchRoute(req.url, "/graphql{/}?")) return yoga(req); else
+    if (process.env.NODE_ENV == "dev") return astro(req);
     const res = await ssg(req);
     if (res.status === 404) return ssr(req);
   };

@@ -20,6 +20,7 @@ const users = pgTable("users", {
   }),
   sessions = pgTable("sessions", {
     id: text("id").unique().primaryKey().notNull(),
+    user: uuid("user").references(() => users.id),
     updatedAt: timestamp("updated_at").defaultNow().notNull(),
     createdAt: timestamp("created_at").defaultNow().notNull(),
     secretHash: bytea("secret_hash").notNull(),
