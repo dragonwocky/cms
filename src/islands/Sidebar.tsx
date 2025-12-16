@@ -1,17 +1,3 @@
-import {
-  Calendars,
-  CircleUser,
-  Construction,
-  Images,
-  Library,
-  LinkIcon,
-  LogOut,
-  Logs,
-  Menu,
-  Mic,
-  Signature,
-  Users,
-} from "lucide-solid";
 import { Title } from "./generic/Title.tsx";
 import { Link } from "./generic/Link.tsx";
 import { LightDarkButton } from "./LightDarkButton.tsx";
@@ -25,61 +11,66 @@ const Sidebar = () => {
           true,
         "**:[svg]:h-5 **:[svg]:w-5 **:[svg]:text-neutral-500 dark:**:[svg]:text-neutral-400":
           true,
-        "w-16 mr-2 md:w-xs md:px-2 md:mr-8 **:[span]:hidden md:**:[span,h2]:inline": true
+        "w-16 p-2 md:w-xs md:px-2 md:mr-2 **:[span]:hidden md:**:[span,h2]:inline":
+          true,
       }}
     >
       <Link href="#">
-        <Construction />
+        <i class="i-lucide:construction" />
         <span>Under Construction</span>
       </Link>
 
-      <Title><span>Collections</span></Title>
+      <Title>
+        <span>Collections</span>
+      </Title>
       <Link href="#" active>
-        <Library />
+        <i class="i-lucide:library" />
         <span>Pages</span>
       </Link>
       <Link href="#">
-        <Calendars />
+        <i class="i-lucide:calendars" />
         <span>Posts</span>
       </Link>
       <Link href="#">
-        <Mic />
+        <i class="i-lucide:mic" />
         <span>Sermons</span>
       </Link>
       <Link href="#">
-        <Images />
+        <i class="i-lucide:images" />
         <span>Media</span>
       </Link>
 
-      <Title><span>Settings</span></Title>
+      <Title>
+        <span>Settings</span>
+      </Title>
       <Link href="#">
-        <Signature />
+        <i class="i-lucide:signature" />
         <span>Metadata</span>
       </Link>
       <Link href="#">
-        <Menu />
+        <i class="i-lucide:menu" />
         <span>Navigation</span>
       </Link>
       <Link href="#">
-        <LinkIcon />
+        <i class="i-lucide:link" />
         <span>Redirects</span>
       </Link>
       <Link href="#">
-        <Users />
+        <i class="i-lucide:users" />
         <span>Users</span>
       </Link>
 
       <Link href="#" class="mt-auto">
-        <CircleUser />
+        <i class="i-lucide:circle-user" />
         <span>Username</span>
       </Link>
       <LightDarkButton />
       <Link href="#">
-        <Logs />
+        <i class="i-lucide:logs" />
         <span>Audit Logs</span>
       </Link>
       <Link href="#">
-        <LogOut />
+        <i class="i-lucide:log-out" />
         <span>Sign Out</span>
       </Link>
     </aside>

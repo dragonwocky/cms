@@ -7,8 +7,8 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="Admin">
-  <Sidebar client:only />
-  <main class="w-full bg-white dark:bg-neutral-900 rounded-lg shadow-md">
+  <Sidebar client:load />
+  <main class="w-full bg-white dark:bg-neutral-900 rounded-lg">
     <Editor client:visible />
   </main>
 </Layout>

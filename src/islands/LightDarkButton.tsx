@@ -1,4 +1,3 @@
-import { Moon, Sun } from "lucide-solid";
 import { Button } from "./generic/Button.tsx";
 
 const LightDarkButton = () => {
@@ -8,15 +7,14 @@ const LightDarkButton = () => {
         onClick={() => document.documentElement.classList.add("dark")}
         class="dark:hidden"
       >
-
-        <Moon/>
+        <i class="i-lucide:moon" />
         <span>Dark Mode</span>
       </Button>
       <Button
         onClick={() => document.documentElement.classList.remove("dark")}
-        class="not-dark:hidden"
+        class="hidden dark:flex"
       >
-        <Sun />
+        <i class="i-lucide:sun" />
         <span>Light Mode</span>
       </Button>
     </>
